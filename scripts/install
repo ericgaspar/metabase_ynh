@@ -70,7 +70,7 @@ ynh_install_app_dependencies $pkg_dependencies
 #=================================================
 ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
 
-db_name=$(ynh_sanitize_dbid --db_name=$app)
+db_name=$(ynh_sanitize_dbid --db_name=meta)
 db_user=$db_name
 ynh_app_setting_set --app=$app --key=db_name --value=$db_name
 ynh_psql_test_if_first_run
