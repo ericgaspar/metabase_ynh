@@ -115,8 +115,8 @@ ynh_add_systemd_config
 cp ../conf/metabase /etc/default/$app
 
 ynh_replace_string --match_string="__PORT__" --replace_string="$port" --target_file="/etc/default/$app"
-ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="/etc/default/$app"
-ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="/etc/default/$app"
+#ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="/etc/default/$app"
+#ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="/etc/default/$app"
 
 #=================================================
 # GENERIC FINALIZATION
