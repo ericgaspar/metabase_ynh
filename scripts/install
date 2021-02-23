@@ -126,7 +126,7 @@ ynh_add_config --template="../conf/metabase" --destination="/etc/default/$app"
 chmod +x $final_path/metabase.jar
 
 chown -R $app: $final_path
-touch /var/log/metabase.log
+touch /var/log/$app.log
 chown $app: /var/log/$app.log
 touch /etc/default/$app
 chmod 640 /etc/default/$app
