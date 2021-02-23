@@ -61,9 +61,20 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_print_info "Installing dependencies..."
+ynh_script_progression --message="Installing dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies
+
+#=================================================
+# CREATE A POSTQRESQL DATABASE
+#=================================================
+ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
+
+db_name=$(ynh_sanitize_dbid --db_name=$app)
+db_user=$db_name
+ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+ynh_psql_test_if_first_run
+ynh_psql_setup_db --db_user=$db_name --db_name=$db_name
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -101,13 +112,24 @@ ynh_replace_string --match_string="__PORT__" --replace_string="$port" --target_f
 ynh_add_systemd_config
 
 #=================================================
+# SETUP CONFIG
+#=================================================
+
+ynh_add_config --template="../conf/metabase" --destination="/etc/default/$app"
+
+#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # SECURE FILES AND DIRECTORIES
 #=================================================
 
-chown -R $app: $final_path
 chmod +x $final_path/metabase.jar
+
+chown -R $app: $final_path
+touch /var/log/metabase.log
+chown $app: /var/log/$app.log
+touch /etc/default/$app
+chmod 640 /etc/default/$app
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
