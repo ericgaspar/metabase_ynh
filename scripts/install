@@ -65,16 +65,16 @@ ynh_script_progression --message="Installing dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies
 
-# #=================================================
-# # CREATE A POSTQRESQL DATABASE
-# #=================================================
-# ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
+#=================================================
+# CREATE A POSTQRESQL DATABASE
+#=================================================
+ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
 
-# db_name=$(ynh_sanitize_dbid --db_name=$app)
-# db_user=$db_name
-# ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-# ynh_psql_test_if_first_run
-# ynh_psql_setup_db --db_user=$db_name --db_name=$db_name
+db_name=$(ynh_sanitize_dbid --db_name=$app)
+db_user=$db_name
+ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+ynh_psql_test_if_first_run
+ynh_psql_setup_db --db_user=$db_name --db_name=$db_name
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -115,8 +115,8 @@ ynh_add_systemd_config
 cp ../conf/metabase /etc/default/$app
 
 ynh_replace_string --match_string="__PORT__" --replace_string="$port" --target_file="/etc/default/$app"
-#ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="/etc/default/$app"
-#ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="/etc/default/$app"
+ynh_replace_string --match_string="__DB_NAME__" --replace_string="$db_name" --target_file="/etc/default/$app"
+ynh_replace_string --match_string="__DB_PWD__" --replace_string="$db_pwd" --target_file="/etc/default/$app"
 
 #=================================================
 # GENERIC FINALIZATION
