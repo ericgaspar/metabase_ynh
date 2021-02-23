@@ -55,7 +55,7 @@ ynh_app_setting_set --app=$app --key=is_public --value=$is_public
 ynh_script_progression --message="Finding an available port..." --weight=3
 
 # Find a free port
-port=$(ynh_find_port --port=8095)
+port=$(ynh_find_port --port=3000)
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
@@ -106,20 +106,8 @@ ynh_add_systemd_config
 # SECURE FILES AND DIRECTORIES
 #=================================================
 
-# Set permissions to app files
-mkdir -p $final_path/data/streama
-ln -s $final_path/data/streama /home/yunohost.app/streama
-cp "../conf/convert.sh" /usr/bin/convert_movies
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
 chown -R $app: $final_path
-chmod +x /usr/bin/convert_movies
-chmod +x $final_path/streama.jar
+chmod +x $final_path/metabase.jar
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
@@ -134,7 +122,7 @@ yunohost service add $app --description="Streama media system" --log="/var/log/$
 ynh_script_progression --message="Starting a systemd service..." --weight=2
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action=start --log_path="systemd" --line_match="Grails application running at"
+ynh_systemd_action --service_name=$app --action=start --log_path=systemd #--line_match="Grails application running at"
 
 #=================================================
 # SETUP SSOWAT
