@@ -137,7 +137,7 @@ chmod 640 /etc/default/$app
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=3
 
-yunohost service add $app --description="Streama media system" --log="/var/log/$app/$app.log"
+yunohost service add $app --description="Web database management tool" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
