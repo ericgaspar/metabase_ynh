@@ -19,7 +19,7 @@
     "multi_instance": false,
     "services": [
         "nginx",
-        "mysql"
+        "postgres"
     ],
     "arguments": {
         "install": [{

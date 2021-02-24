@@ -4,11 +4,11 @@ After=syslog.target
 After=network.target
 
 [Service]
+User=__APP__
+Type=simple
 WorkingDirectory=__FINALPATH__
 ExecStart=/usr/bin/java -jar __FINALPATH__/metabase.jar
 EnvironmentFile=/etc/default/metabase
-User=__APP__
-Type=simple
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=__APP__

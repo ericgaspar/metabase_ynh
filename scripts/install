@@ -112,6 +112,7 @@ ynh_add_systemd_config
 # SETUP CONFIG
 #=================================================
 
+touch /etc/default/$app
 cp ../conf/metabase /etc/default/$app
 
 ynh_replace_string --match_string="__PORT__" --replace_string="$port" --target_file="/etc/default/$app"
@@ -129,7 +130,6 @@ chmod +x $final_path/metabase.jar
 chown -R $app: $final_path
 touch /var/log/$app.log
 chown $app: /var/log/$app.log
-touch /etc/default/$app
 chmod 640 /etc/default/$app
 
 #=================================================
@@ -169,4 +169,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of Streama completed" --last
+ynh_script_progression --message="Installation of Metabase completed" --last

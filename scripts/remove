@@ -89,4 +89,4 @@ ynh_system_user_delete --username=$app
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Removal of Streama completed" --last
+ynh_script_progression --message="Removal of Metabase completed" --last

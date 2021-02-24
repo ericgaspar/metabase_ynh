@@ -1,7 +1,7 @@
 # Metabase for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/streama.svg)](https://dash.yunohost.org/appci/app/streama) ![](https://ci-apps.yunohost.org/ci/badges/streama.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/streama.maintain.svg)  
-[![Install Streama with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streama)
+[![Integration level](https://dash.yunohost.org/integration/metabase.svg)](https://dash.yunohost.org/appci/app/metabase) ![](https://ci-apps.yunohost.org/ci/badges/metabase.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/metabase.maintain.svg)  
+[![Install Streama with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=metabase)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
@@ -9,7 +9,7 @@
 If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/install) to learn how to install it.*
 
 ## Overview
-Streama is a free self hosted media streaming server running on Java, that you can install on your Linux distribution. Its features are similar to those of Kodi and Plex and it is simply a matter of personal choice which one you would like to use.
+Metabase is the easy, open source way for everyone in your company to ask questions and learn from data.
 
 **Shipped version:** 0.38.0.1
 
@@ -19,18 +19,7 @@ Streama is a free self hosted media streaming server running on Java, that you c
 
 ## Demo
 
-* [Official demo](https://streama.demo-version.net)
-
-**User**: demoUser  
-**Password**: demoUser
-
-## Installation guide
-
-> :warning: Streama must be installed in the root domain or subdomain.
-
-Default upload directory is: `/home/yunohost.app/streama` (must be mentioned in *Settings* page or can be changed)
- 
-Default local video directory is: `/home/yunohost.app/streama/upload` (must be mentioned in *Settings* page or can be changed)
+* [Official demo]()
 
 ## Documentation
 
@@ -53,7 +42,7 @@ Default local video directory is: `/home/yunohost.app/streama/upload` (must be m
 ## Links
 
  * Report a bug: https://github.com/YunoHost-Apps/metabase_ynh/issues
- * App website: https://metabase.com/
+ * App website: https://metabase.com
  * Upstream app repository: https://github.com/metabase/metabase
  * YunoHost website: https://yunohost.org/
 
