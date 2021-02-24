@@ -9,7 +9,7 @@
 Si vous n'avez pas YunoHost, consultez [le guide](https://yunohost.org/#/install) pour apprendre comment l'installer.*
 
 ## Vue d'ensemble
-Streama est un serveur de streaming multimédia auto-hébergé gratuit fonctionnant sur Java, que vous pouvez installer sur votre distribution Linux. Ses fonctionnalités sont similaires à celles de Kodi et Plex et c'est simplement une question de choix personnel que vous souhaitez utiliser.
+Metabase is the easy, open source way for everyone in your company to ask questions and learn from data.
 
 **Version incluse :** 0.38.0.1
 
